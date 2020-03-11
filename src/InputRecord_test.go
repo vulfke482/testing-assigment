@@ -44,8 +44,6 @@ func TestInputRecord_CSV(t *testing.T) {
 
 	result := tmp.CSV()
 
-	fmt.Println(expected, result)
-
 	if !reflect.DeepEqual(expected, result) {
 		t.Error()
 	} else {
