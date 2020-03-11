@@ -6,11 +6,9 @@ import (
 	"log"
 )
 
-const (
-	buffer = 1000
-	freq   = 100
-)
+const freq = 100
 
+// ReadData reads csv data.
 func ReadData(reader *csv.Reader) ([]InputRecord, error) {
 	records := make([]InputRecord, 0)
 	for {
@@ -25,7 +23,6 @@ func ReadData(reader *csv.Reader) ([]InputRecord, error) {
 		}
 
 		inrecord, err1 := FromCSV(record)
-
 		if err1 != nil {
 			continue
 		}
@@ -35,7 +32,7 @@ func ReadData(reader *csv.Reader) ([]InputRecord, error) {
 	return records, nil
 }
 
-
+// WriteOutputData writes output data.
 func WriteOutputData(file io.Writer, records []OutputRecord) {
 	w := csv.NewWriter(file)
 	var err error

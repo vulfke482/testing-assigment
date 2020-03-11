@@ -5,9 +5,8 @@ import (
 	"testing"
 )
 
-
 func TestOutputRecord_CSV(t *testing.T) {
-	expected := []string{"exampleUser504","47319.95","USD", "0"}
+	expected := []string{"exampleUser504", "47319.95", "USD", "0"}
 
 	outRecord := OutputRecord{
 		"exampleUser504",

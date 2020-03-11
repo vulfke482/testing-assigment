@@ -2,16 +2,18 @@ package src
 
 import "time"
 
+// DateFilter gathers all the records that are at most 1 year old
 func DateFilter(data []InputRecord, start time.Time) []InputRecord {
-	result := make([]InputRecord, 0);
+	result := make([]InputRecord, 0)
 	for _, record := range data {
 		if record.Date.After(start) {
-			result = append(result, record);
+			result = append(result, record)
 		}
 	}
 	return result
 }
 
+// AggregateAmount counts sum of all amounts for all records.
 func AggregateAmount(data []InputRecord) map[string]map[string]float64 {
 	aggregator := make(map[string]map[string]float64)
 	for _, record := range data {
@@ -25,14 +27,15 @@ func AggregateAmount(data []InputRecord) map[string]map[string]float64 {
 	return aggregator
 }
 
+// ProcessData turns input data to aggregated output data
 func ProcessData(data []InputRecord) []OutputRecord {
-	result := make([]OutputRecord, 0);
+	result := make([]OutputRecord, 0)
 	aggregatedData := AggregateAmount(data)
 
-	for userId, v := range aggregatedData {
+	for UserID, v := range aggregatedData {
 
-		for curr, amount := range v {
-			result = append(result, newOutputRecord(userId, curr, amount, 0))
+		for Currency, Amount := range v {
+			result = append(result, newOutputRecord(UserID, Currency, Amount, 0))
 		}
 	}
 

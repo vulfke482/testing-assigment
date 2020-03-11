@@ -1,15 +1,15 @@
 package src
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 	"time"
-	"fmt"
 )
 
 func TestFromCSV(t *testing.T) {
-	csv_example := []string{"4","2019-07-05 05:00:00 +0000 UTC","exampleUser504","47319.95","USD"}
-	result, err := FromCSV(csv_example)
+	tmp := []string{"4", "2019-07-05 05:00:00 +0000 UTC", "exampleUser504", "47319.95", "USD"}
+	result, err := FromCSV(tmp)
 
 	if err != nil {
 		fmt.Println("All it bed")
@@ -32,7 +32,7 @@ func TestFromCSV(t *testing.T) {
 }
 
 func TestInputRecord_CSV(t *testing.T) {
-	expected := []string{"4","2019-07-05 05:00:00 +0000 UTC","exampleUser504","47319.95","USD"}
+	expected := []string{"4", "2019-07-05 05:00:00 +0000 UTC", "exampleUser504", "47319.95", "USD"}
 
 	tmp := InputRecord{
 		"4",

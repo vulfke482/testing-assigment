@@ -3,14 +3,12 @@ package main
 import (
 	"encoding/csv"
 	"flag"
+	"fmt"
 	"log"
 	"os"
-	"fmt"
-	"time"
 	"testing-assigment/src"
+	"time"
 )
-
-
 
 func main() {
 	flag.Parse()
@@ -51,5 +49,8 @@ func main() {
 
 	src.WriteOutputData(outfile, outputData)
 	err = outfile.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }

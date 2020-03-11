@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-
 func generateData() []InputRecord {
 	return []InputRecord{
 		{
@@ -81,7 +80,7 @@ func dateFilterResult() []InputRecord {
 }
 
 func TestDateFilter(t *testing.T) {
-	data := dateFilterResult()
+	data := generateData()
 
 	filteredData := DateFilter(data, time.Date(2019, 6, 5, 5, 0, 0, 0, time.UTC))
 
@@ -118,7 +117,7 @@ func TestProcessData(t *testing.T) {
 
 	result := ProcessData(data)
 
-	expected := []OutputRecord {
+	expected := []OutputRecord{
 		{
 			"exampleUser504",
 			10,
@@ -131,7 +130,6 @@ func TestProcessData(t *testing.T) {
 			"UAH",
 			0,
 		},
-
 	}
 
 	if !reflect.DeepEqual(expected, result) {
