@@ -24,7 +24,7 @@ func ReadData(reader *csv.Reader) ([]InputRecord, error) {
 			return nil, err
 		}
 
-		inrecord, err1 := fromCSV(record)
+		inrecord, err1 := FromCSV(record)
 
 		if err1 != nil {
 			continue

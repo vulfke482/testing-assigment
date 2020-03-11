@@ -19,7 +19,7 @@ func (e InputRecord) CSV() []string {
 }
 
 
-func fromCSV(data []string) (InputRecord, error) {
+func FromCSV(data []string) (InputRecord, error) {
 	OrderID := data[0]
 
 	Date, err:= time.Parse("2006-01-02 15:04:05 -0700 MST", data[1])

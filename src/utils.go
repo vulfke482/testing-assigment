@@ -12,7 +12,7 @@ func DateFilter(data []InputRecord, start time.Time) ([]InputRecord, error) {
 	return result, nil
 }
 
-func aggregateAmount(data []InputRecord) map[string]map[string]float64 {
+func AggregateAmount(data []InputRecord) map[string]map[string]float64 {
 	aggregator := make(map[string]map[string]float64)
 	for _, record := range data {
 
@@ -27,7 +27,7 @@ func aggregateAmount(data []InputRecord) map[string]map[string]float64 {
 
 func ProcessData(data []InputRecord) []OutputRecord {
 	result := make([]OutputRecord, 0);
-	aggregatedData := aggregateAmount(data)
+	aggregatedData := AggregateAmount(data)
 
 	for userId, v := range aggregatedData {
 
