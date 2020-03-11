@@ -1,7 +1,6 @@
 package src
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 	"time"
@@ -84,12 +83,7 @@ func dateFilterResult() []InputRecord {
 func TestDateFilter(t *testing.T) {
 	data := dateFilterResult()
 
-	filteredData, err := DateFilter(data, time.Date(2019, 6, 5, 5, 0, 0, 0, time.UTC))
-
-	if err != nil {
-		fmt.Println("All it bed")
-		t.Error()
-	}
+	filteredData := DateFilter(data, time.Date(2019, 6, 5, 5, 0, 0, 0, time.UTC))
 
 	neededResult := dateFilterResult()
 

@@ -2,14 +2,14 @@ package src
 
 import "time"
 
-func DateFilter(data []InputRecord, start time.Time) ([]InputRecord, error) {
+func DateFilter(data []InputRecord, start time.Time) []InputRecord {
 	result := make([]InputRecord, 0);
 	for _, record := range data {
 		if record.Date.After(start) {
 			result = append(result, record);
 		}
 	}
-	return result, nil
+	return result
 }
 
 func AggregateAmount(data []InputRecord) map[string]map[string]float64 {

@@ -27,14 +27,20 @@ func main() {
 	csvReader := csv.NewReader(fileReader)
 
 	data, err := src.ReadData(csvReader)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	err = fileReader.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	t := time.Now()
 	fmt.Println(t)
 	start := t.AddDate(-1, 0, 0)
 
-	data, err = src.DateFilter(data, start)
+	data = src.DateFilter(data, start)
 
 	outputData := src.ProcessData(data)
 
